@@ -1,7 +1,9 @@
 
 Mover mover; 
 Mover mover2; 
-
+  int r = 0;
+  int g = 0;
+  int b = 0;
 
 void setup(){
  size(640*2,360*2);
@@ -52,11 +54,11 @@ class Mover {
   
   direction.normalize();
   
-  direction.mult(0.5t);
+  direction.mult(5.0);
   
-  acceleration = direction;
+  //acceleration = direction;
   
-  //acceleration = PVector.random2D();
+  acceleration = PVector.random2D();
   
   velocity.add(acceleration);
   location.add(velocity);
@@ -95,8 +97,19 @@ void checkVelocity(){
  
  void display(){
   stroke(0);
-  fill(random(0,255), random(0,255), random(0,255));
-  ellipse(location.x, location.y, 16,16); 
- }
   
+  
+  //fill(random(0,255), random(0,255), random(0,255));
+  fill(r,g,b);
+  r++;
+  g++;
+  b++;
+  ellipse(location.x, location.y, 16,16); 
+  
+if (r == 255) {
+    r = 0;
+    g = 0;
+    b = 0;
+ }
+ }
 }
